@@ -1,10 +1,14 @@
 #include "game_piece.h"
+#include "pos.h"
 
 class BoardSquare
 {
+	Pos squarePos;
 	GamePiece& currentPiece;
 public:
 	BoardSquare();
-	GamePiece& getPiece() const;
+	BoardSquare(const Pos& initPos);
+	BoardSquare(const Pos& initPos, GamePiece& piece);
+	GamePiece& getPiece();
 	void setPiece(GamePiece&);
 };

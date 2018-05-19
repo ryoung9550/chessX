@@ -1,0 +1,9 @@
+# vim swap file
+*.swp
+
+
+# cpp object files
+*.o
+*.a
+*.out
+*.so
