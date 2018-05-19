@@ -1,14 +1,15 @@
 #include "game_piece.h"
+#include <memory>
 #include "pos.h"
 
 class BoardSquare
 {
 	Pos squarePos;
-	GamePiece& currentPiece;
+	std::unique_ptr<GamePiece> currentPiece;
 public:
 	BoardSquare();
-	BoardSquare(const Pos& initPos);
-	BoardSquare(const Pos& initPos, GamePiece& piece);
-	GamePiece& getPiece();
-	void setPiece(GamePiece&);
+	BoardSquare(Pos& initPos);
+	BoardSquare(Pos& initPos, GamePiece *const piece);
+	std::unique_ptr<GamePiece> removePiece();
+	void setPiece(std::unique_ptr<GamePiece>);
 };
