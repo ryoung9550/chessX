@@ -1,5 +1,5 @@
-#include "board_square.h"
-
+#include <include/board_square.h>
+#include <include/game_piece.h>
 
 BoardSquare::BoardSquare()
 {
@@ -34,3 +34,4 @@ void BoardSquare::setPiece(std::unique_ptr<GamePiece> srcPtr)
 		//TODO: Add SquareHasPiece Exception
 	}
 }
+
