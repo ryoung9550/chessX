@@ -13,8 +13,8 @@ public:
 	BoardSquare();
 	BoardSquare(Pos& initPos);
 	BoardSquare(Pos& initPos, GamePiece *const piece);
-	void setPiece(std::unique_ptr<GamePiece>);
 	std::unique_ptr<GamePiece> removePiece();
+	void setPiece(std::unique_ptr<GamePiece>);
 };
 
 #endif // _BOARD_SQUARE_H

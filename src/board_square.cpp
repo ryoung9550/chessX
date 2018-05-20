@@ -1,5 +1,7 @@
+#include <include/game_pieces/game_piece.h>
 #include <include/board_square.h>
-#include <include/game_piece.h>
+
+#include <memory>
 
 BoardSquare::BoardSquare()
 {
