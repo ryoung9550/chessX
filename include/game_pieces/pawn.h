@@ -1,3 +1,6 @@
+#ifndef _PAWN_H
+#define _PAWN_H
+
 #include "game_piece.h"
 
 class Pawn : public GamePiece 
@@ -7,3 +10,5 @@ class Pawn : public GamePiece
 public:
 	void move(const Pos& dest);
 };
+
+#endif // _PAWN_H
