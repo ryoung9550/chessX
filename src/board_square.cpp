@@ -1,5 +1,5 @@
-#include <include/game_pieces/game_piece.h>
-#include <include/board_square.h>
+#include <game_pieces/game_piece.h>
+#include <board_square.h>
 
 #include <memory>
 
