@@ -6,14 +6,15 @@
 
 class GamePiece 
 {
-	Pos position;
+	Player player;
 protected:
 	virtual bool validMove(const Pos& dest);
 public:
+	GamePiece(const Player&);
 	/*
 	 * @brief - moves piece to destination
 	 */
-	virtual void move(const Pos& dest);	
+	void move(const Pos& dest);	
 	void setPos(const Pos& pos);
 	Pos getPos() const;
 };

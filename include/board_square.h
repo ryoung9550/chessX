@@ -1,8 +1,7 @@
 #ifndef _BOARD_SQUARE_H
 #define _BOARD_SQUARE_H
 
-#include "game_pieces/game_piece.h"
-#include "pos.h"
+#include <game_pieces/game_piece.h>
 #include <memory>
 
 class BoardSquare
