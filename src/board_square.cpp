@@ -1,25 +1,13 @@
 #include <game_pieces/game_piece.h>
 #include <board_square.h>
+#include <game_board.h>
+#include <pos.h>
 
 #include <memory>
 
-BoardSquare::BoardSquare()
-{
-	squarePos = { 0, 0 };
-	currentPiece = std::unique_ptr<GamePiece>(nullptr);
-}
+BoardSquare::BoardSquare(GameBoard& parrent) : owner(parrent), currentPiece(nullptr) {}
 
-BoardSquare::BoardSquare(Pos& initPos)
-{
-	squarePos = initPos;
-	currentPiece = std::unique_ptr<GamePiece>(nullptr);
-}
-
-BoardSquare::BoardSquare(Pos& initPos, GamePiece *const piece)
-{
-	squarePos = initPos;
-	currentPiece = std::unique_ptr<GamePiece>(piece);
-}
+BoardSquare::BoardSquare(GameBoard& parrent, GamePiece *const piece) : owner(parrent), currentPiece(piece) {}
 
 std::unique_ptr<GamePiece> BoardSquare::removePiece()
 {
