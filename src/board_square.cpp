@@ -1,3 +1,4 @@
+#include <exceptions/board_exceptions.h>
 #include <game_pieces/game_piece.h>
 #include <board_square.h>
 #include <game_board.h>
@@ -21,7 +22,7 @@ void BoardSquare::setPiece(std::unique_ptr<GamePiece> srcPtr)
 		currentPiece.reset();
 		currentPiece = (std::move(srcPtr));
 	} else {
-		//TODO: Add SquareHasPiece Exception
+		throw new square_has_piece_exception;
 	}
 }
 
