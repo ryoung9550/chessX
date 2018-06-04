@@ -1,8 +1,8 @@
 #ifndef _GAME_PIECE_H
 #define _GAME_PIECE_H
 
-#include <globals.h>
-#include <pos.h>
+#include <common/globals.h>
+#include <common/pos.h>
 
 class GamePiece 
 {
