@@ -1,11 +1,10 @@
 #pragma once
 
+#include "component/board_square.h"
+#include "common/globals.h"
+
 #include <array>
 #include <memory>
-
-#include "../component/board_square.h"
-#include <component/board_square.h>
-#include <common/globals.h>
 
 class GameBoard
 {

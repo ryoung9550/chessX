@@ -1,8 +1,9 @@
 #pragma once
 
-#include <game_pieces/game_piece.h>
-#include <component/game_board.h>
-#include <common/pos.h>
+#include "game_pieces/game_piece.h"
+#include "component/game_board.h"
+#include "common/pos.h"
+
 #include <memory>
 
 class BoardSquare

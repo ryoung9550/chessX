@@ -1,8 +1,8 @@
-#include <exceptions/board_exceptions.h>
-#include <game_pieces/game_piece.h>
-#include <component/board_square.h>
-#include <component/game_board.h>
-#include <common/pos.h>
+#include "exceptions/board_exceptions.h"
+#include "game_pieces/game_piece.h"
+#include "component/board_square.h"
+#include "component/game_board.h"
+#include "common/pos.h"
 
 #include <memory>
 
