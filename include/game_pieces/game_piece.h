@@ -4,19 +4,16 @@
 #include "common/globals.h"
 #include "common/pos.h"
 
+#include <memory>
+
+class BoardSquare;
+
 class GamePiece 
 {
 	Player player;
-protected:
-	virtual bool validMove(const Pos& dest);
 public:
 	GamePiece(const Player&);
-	/*
-	 * @brief - moves piece to destination
-	 */
-	void move(const Pos& dest);	
-	void setPos(const Pos& pos);
-	Pos getPos() const;
+	virtual bool validMove(const Pos& dest);
 };
 
 #endif // _GAME_PIECE_H

@@ -4,6 +4,24 @@
 #include <memory>
 #include <array>
 
+/*
+ * Default chess board:
+ *
+ *   a b c d e f g h
+ * 1
+ * 2
+ * 3
+ * 4
+ * 5
+ * 6
+ * 7
+ * 8
+ *
+ * the 0th index begins at A1 then the 1st
+ * is B1 and snakes until the 63rd index
+ * at position H8
+ */
+
 #define WHITE_ROOK_1 0
 #define WHITE_KNIGHT_1 1
 #define WHITE_BISHOP_1 2
@@ -98,4 +116,33 @@ GameBoard::GameBoard()
 std::shared_ptr<BoardSquare> GameBoard::getSquare(const size_t& row, const size_t& col)
 {
 	return gameSquares[ (col - 1) + ((row - 1) * 8) ];
+}
+
+int GameBoard::getPosOffset(const Pos& pos)
+{
+	int offsetIndex = 0;
+	offsetIndex += pos.file;
+	offsetIndex += pos.rank * globals::BOARD_SIZE;
+
+	return offsetIndex;
+}
+
+void GameBoard::movePiece(const Pos& src, const Pos& dest)
+{
+	int srcOffset = getPosOffset(src);
+	int destOffest = getPosOffset(dest);
+	std::unique_ptr<GamePiece> movingPiece = 
+		gameSquares[srcOffset]->removePiece();
+	
+	//TODO: check for valid move of the piece before moving
+	if (true) {
+		if (gameSquares[destOffest]->hasPiece()) {
+			std::unique_ptr<GamePiece> capturedPiece =
+				gameSquares[destOffest]->removePiece();
+			capturedPieces.push_back(std::move(capturedPiece));
+		}
+		gameSquares[destOffest]->setPiece(std::move(movingPiece));
+	} else { // not valid move
+		gameSquares[srcOffset]->setPiece(std::move(movingPiece));
+	}
 }

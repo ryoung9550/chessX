@@ -12,8 +12,7 @@ BoardSquare::BoardSquare(GameBoard& parrent, GamePiece *piece) : owner(parrent),
 
 std::unique_ptr<GamePiece> BoardSquare::removePiece()
 {
-	std::unique_ptr<GamePiece> uptr = std::unique_ptr<GamePiece>(std::move(currentPiece));
-	return uptr;
+	return std::move(currentPiece);
 }
 
 void BoardSquare::setPiece(std::unique_ptr<GamePiece> srcPtr)
@@ -26,3 +25,7 @@ void BoardSquare::setPiece(std::unique_ptr<GamePiece> srcPtr)
 	}
 }
 
+bool BoardSquare::hasPiece()
+{
+	return (currentPiece.get() != nullptr);
+}

@@ -15,6 +15,7 @@ public:
 	BoardSquare(GameBoard&);
 	BoardSquare(GameBoard&, GamePiece *piece);
 	std::unique_ptr<GamePiece> removePiece();
+	bool hasPiece();
 	void setPiece(std::unique_ptr<GamePiece>);
 };
 
