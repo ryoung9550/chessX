@@ -8,7 +8,7 @@
 
 class GameBoard
 {
-	BoardSquare* board;
+	std::array<std::shared_ptr<BoardSquare>, globals::BOARD_SIZE * globals::BOARD_SIZE> gameSquares;
 public:
 	/*
 	 * @brief - Create new gameboard with gamesquare and all game pieces

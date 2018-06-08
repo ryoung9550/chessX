@@ -40,7 +40,7 @@
 
 GameBoard::GameBoard()
 {
-	constexpr int NUM_OF_SQUARES = BOARD_SIZE * BOARD_SIZE;
+	constexpr int NUM_OF_SQUARES = globals::BOARD_SIZE * globals::BOARD_SIZE;
 
 	for (int i = 0; i < NUM_OF_SQUARES; ++i) {
 		//TODO: Create square creation with game pieces
@@ -90,12 +90,12 @@ GameBoard::GameBoard()
 		case BLACK_KING:
 			break;
 		default:
-			board[i] = std::make_shared<BoardSquare>();
+			gameSquares[i] = std::make_shared<BoardSquare>(*this);
 		}
 	}
 }
 
 std::shared_ptr<BoardSquare> GameBoard::getSquare(const size_t& row, const size_t& col)
 {
-	return board[ (col - 1) + ((row - 1) * 8) ];
+	return gameSquares[ (col - 1) + ((row - 1) * 8) ];
 }

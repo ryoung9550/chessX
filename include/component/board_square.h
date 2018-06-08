@@ -13,7 +13,7 @@ class BoardSquare
 	std::unique_ptr<GamePiece> currentPiece;
 public:
 	BoardSquare(GameBoard&);
-	BoardSquare(GameBoard&, GamePiece *const piece);
+	BoardSquare(GameBoard&, GamePiece *piece);
 	std::unique_ptr<GamePiece> removePiece();
 	void setPiece(std::unique_ptr<GamePiece>);
 };

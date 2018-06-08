@@ -10,6 +10,8 @@ set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 set(SOURCES
 	${CMAKE_SOURCE_DIR}/src/main.cpp
 	${CMAKE_SOURCE_DIR}/src/component/board_square.cpp
+	${CMAKE_SOURCE_DIR}/src/component/game_board.cpp
+	${CMAKE_SOURCE_DIR}/src/game_pieces/game_piece.cpp
 	${CMAKE_SOURCE_DIR}/src/exceptions/board_exceptions.cpp
 )
 

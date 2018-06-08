@@ -5,6 +5,8 @@
 
 typedef int Player;
 
-const size_t BOARD_SIZE = 8;
+namespace globals {
+	const size_t BOARD_SIZE = 8;
+}
 
 #endif // _GLOBALS_H

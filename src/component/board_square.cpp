@@ -8,7 +8,7 @@
 
 BoardSquare::BoardSquare(GameBoard& parrent) : owner(parrent), currentPiece(nullptr) {}
 
-BoardSquare::BoardSquare(GameBoard& parrent, GamePiece *const piece) : owner(parrent), currentPiece(piece) {}
+BoardSquare::BoardSquare(GameBoard& parrent, GamePiece *piece) : owner(parrent), currentPiece(piece) {}
 
 std::unique_ptr<GamePiece> BoardSquare::removePiece()
 {
