@@ -6,12 +6,12 @@
 #include <string>
 #include <SDL2/SDL.h>
 
-SDL_Deleter::SDL_Deleter(SDL_Window* window)
+void SDL_Deleter::operator()(SDL_Window* window)
 {
 	SDL_DestroyWindow(window);
 }
 
-SDL_Deleter::SDL_Deleter(SDL_Renderer* renderer)
+void SDL_Deleter::operator()(SDL_Renderer* renderer)
 {
 	SDL_DestroyRenderer(renderer);
 }
