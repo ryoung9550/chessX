@@ -5,6 +5,12 @@
 #include <memory>
 #include <SDL2/SDL.h>
 
+struct SDL_Deleter
+{
+	SDL_Deleter(SDL_Window*);
+	SDL_Deleter(SDL_Renderer*);
+};
+
 class Window
 {
 	std::unique_ptr<SDL_Window> window;
@@ -12,4 +18,5 @@ class Window
 	std::vector<DrawObject> renderList;
 public:
 	Window(std::string title);
+	~Window();
 };
