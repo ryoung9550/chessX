@@ -6,8 +6,6 @@
 class window_init_failed_exception : public std::exception
 {
 	const char* what() const throw();
-public:
-	window_init_failed_exception(const char*);
 };
 
 #endif // _SDL_EXCEPTIONS_H

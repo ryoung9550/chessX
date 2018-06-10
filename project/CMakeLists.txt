@@ -24,6 +24,7 @@ set(SOURCES
 	${CMAKE_SOURCE_DIR}/src/component/game_board.cpp
 	${CMAKE_SOURCE_DIR}/src/game_pieces/game_piece.cpp
 	${CMAKE_SOURCE_DIR}/src/exceptions/board_exceptions.cpp
+	${CMAKE_SOURCE_DIR}/src/exceptions/SDL_exceptions.cpp
 	${CMAKE_SOURCE_DIR}/src/media/window.cpp
 )
 

@@ -23,6 +23,6 @@ Window::Window(std::string title) :
 	renderer(SDL_CreateRenderer(window.get(), -1, 0))
 {
 	if (this->window.get() == nullptr) {
-		throw new window_init_failed_exception(SDL_GetError());
+		throw new window_init_failed_exception();
 	}
 }
