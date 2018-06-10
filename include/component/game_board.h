@@ -10,7 +10,7 @@
 class GameBoard
 {
 	std::array<std::shared_ptr<BoardSquare>, globals::BOARD_SIZE * globals::BOARD_SIZE> gameSquares;
-	std::vector<std::unique_ptr<GamePiece>> capturedPieces;
+	std::vector<std::unique_ptr<GamePiece> > capturedPieces;
 	int getPosOffset(const Pos&);
 public:
 	/*
