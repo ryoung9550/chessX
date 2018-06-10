@@ -6,7 +6,7 @@
 
 class square_has_piece_exception : public std::exception 
 {
-	virtual const char* what() const throw();
+	const char* what() const throw();
 };
 
 #endif // _BOARD_EXCEPTIONS
