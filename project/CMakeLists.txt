@@ -26,6 +26,9 @@ set(SOURCES
 	${CMAKE_SOURCE_DIR}/src/exceptions/board_exceptions.cpp
 	${CMAKE_SOURCE_DIR}/src/exceptions/SDL_exceptions.cpp
 	${CMAKE_SOURCE_DIR}/src/media/window.cpp
+	${CMAKE_SOURCE_DIR}/src/media/texture.cpp
+	${CMAKE_SOURCE_DIR}/src/media/SDLDeleter.cpp
+	${CMAKE_SOURCE_DIR}/src/media/draw_object.cpp
 )
 
 add_executable(${MAIN_TARGET} ${SOURCES})

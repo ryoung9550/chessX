@@ -4,12 +4,15 @@
 #include <memory>
 #include <SDL2/SDL.h>
 
+#include "media/SDLDeleter.h"
+
 class Texture
 {
-	std::unique_ptr<SDL_Texture> texture;
+	std::unique_ptr<SDL_Texture, SDL_Deleter> texture;
 	SDL_Rect size;
 public:
-	Texture(std::unique_ptr<SDL_Texture>, const SDL_Rect&);
+	Texture();
+	Texture(std::unique_ptr<SDL_Texture, SDL_Deleter>, const SDL_Rect&);
 	const SDL_Rect& getSize();
 };
 
