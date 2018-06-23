@@ -6,15 +6,6 @@
 #include <string>
 #include <SDL2/SDL.h>
 
-void SDL_Deleter::operator()(SDL_Window* window)
-{
-	SDL_DestroyWindow(window);
-}
-
-void SDL_Deleter::operator()(SDL_Renderer* renderer)
-{
-	SDL_DestroyRenderer(renderer);
-}
 
 Window::Window(std::string title) :
 	window(SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_UNDEFINED,
