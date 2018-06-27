@@ -1,4 +1,5 @@
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <vector>
 
 class {
@@ -51,6 +52,10 @@ public:
 		if (!init) {
 			init = true;
 			SDL_Init(flag);
+			if(flag == SDL_INIT_VIDEO)
+				IMG_Init( IMG_INIT_TIF |
+					IMG_INIT_JPG |
+					IMG_INIT_PNG);
 			toggleService(flag);
 		} else {
 			if(!isRunning(flag)) {
@@ -74,6 +79,10 @@ public:
 		}
 	}
 
+	/*
+	 * Identify whether any service is running
+	 * @return - Returns true if no services are running, else false
+	 */
 	bool noServices() const
 	{
 		if(timer | audio |
@@ -83,6 +92,10 @@ public:
 		return true;
 	}
 
-
+	void quit() const
+	{
+		IMG_Quit();
+		SDL_Quit();
+	}
 
 } SDLInit;
