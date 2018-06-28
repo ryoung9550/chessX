@@ -1,0 +1,18 @@
+-------------------------
+CHESSX SYSTEM REQUIRMENTS
+-------------------------
+
+This application is going to reproduce the clasic chess board game.
+
+There will be two players. One must be a human player and the other
+must be a human player or a AI player. The first player will decide
+which color pieces he or she will play. The other player will
+automatically recieve the other color to play. The player with the
+white pieces will have the first turn of the game.
+
+There will be a board with the dimentions of 8x8 of squares. The
+squares may or may not own pieces.
+
+Each player has ownership of 8 pawns, 2 bishops, 2 knights, 2 rooks,
+1 Queen, and 1 King. They will all be placed in the standard squares
+stated in the chess rules.

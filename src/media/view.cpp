@@ -12,5 +12,5 @@ void View::draw()
 
 void View::loadTexture(std::string path)
 {
-	
+	SDL_Surface* imgSurf = IMG_Load(path.c_str())
 }
