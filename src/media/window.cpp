@@ -1,5 +1,5 @@
 #include "media/window.h"
-#include "media/SDLInit.h"
+#include "common/SDLInit.h"
 #include "common/globals.h"
 #include "exceptions/SDL_exceptions.h"
 

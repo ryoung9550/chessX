@@ -20,9 +20,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -Wextra")
 
 set(SOURCES
 	${CMAKE_SOURCE_DIR}/src/main.cpp
-	${CMAKE_SOURCE_DIR}/src/component/board_square.cpp
-	${CMAKE_SOURCE_DIR}/src/component/game_board.cpp
-	${CMAKE_SOURCE_DIR}/src/game_pieces/game_piece.cpp
+	${CMAKE_SOURCE_DIR}/src/chess/board_square.cpp
+	${CMAKE_SOURCE_DIR}/src/chess/game_board.cpp
+	${CMAKE_SOURCE_DIR}/src/chess/game_pieces/game_piece.cpp
 	${CMAKE_SOURCE_DIR}/src/exceptions/board_exceptions.cpp
 	${CMAKE_SOURCE_DIR}/src/exceptions/SDL_exceptions.cpp
 	${CMAKE_SOURCE_DIR}/src/media/window.cpp
