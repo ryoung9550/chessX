@@ -18,3 +18,5 @@ Window::Window(std::string title) : window(
 		throw new window_init_failed_exception();
 	}
 }
+
+Window::~Window() {}

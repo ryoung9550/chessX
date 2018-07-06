@@ -16,7 +16,7 @@ set(MAIN_TARGET "chicken")
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -Wextra")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z -Wall -Wextra")
 
 set(SOURCES
 	${CMAKE_SOURCE_DIR}/src/main.cpp
@@ -26,6 +26,7 @@ set(SOURCES
 	${CMAKE_SOURCE_DIR}/src/exceptions/board_exceptions.cpp
 	${CMAKE_SOURCE_DIR}/src/exceptions/SDL_exceptions.cpp
 	${CMAKE_SOURCE_DIR}/src/media/window.cpp
+	${CMAKE_SOURCE_DIR}/src/media/io.cpp
 	${CMAKE_SOURCE_DIR}/src/media/texture.cpp
 	${CMAKE_SOURCE_DIR}/src/media/SDLDeleter.cpp
 	${CMAKE_SOURCE_DIR}/src/media/draw_object.cpp
