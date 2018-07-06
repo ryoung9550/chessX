@@ -146,3 +146,17 @@ void GameBoard::movePiece(const Pos& src, const Pos& dest)
 		gameSquares[srcOffset]->setPiece(std::move(movingPiece));
 	}
 }
+
+std::array<size_t, 64> GameBoard::getBoardRep()
+{
+	std::array<size_t, 64> retArr;
+	for (size_t i = 0; i < gameSquares.size(); ++i) {
+		if (gameSquares[i]->hasPiece()) {
+			retArr[i] = gameSquares[i]->getPieceType();
+		} else {
+			retArr[i] = EMPTY;
+		}
+	}
+
+	return retArr;
+}

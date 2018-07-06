@@ -29,3 +29,12 @@ bool BoardSquare::hasPiece()
 {
 	return (currentPiece.get() != nullptr);
 }
+
+size_t BoardSquare::getPieceType()
+{
+	if (hasPiece()) {
+		return currentPiece->getType();
+	}
+
+	return 255;
+}

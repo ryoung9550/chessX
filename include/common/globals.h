@@ -5,6 +5,29 @@
 
 typedef int Player;
 
+enum 
+{
+	WHITE_PLAYER,
+	BLACK_PLAYER
+};
+
+enum
+{
+	W_ROOK,
+	W_KNIGHT,
+	W_BISHOP,
+	W_QUEEN,
+	W_KING,
+	W_PAWN,
+	B_ROOK,
+	B_KNIGHT,
+	B_BISHOP,
+	B_QUEEN,
+	B_KING,
+	B_PAWN,
+	EMPTY
+};
+
 namespace globals {
 	const size_t BOARD_SIZE = 8;
 	const size_t DEFAULT_WIN_H = 480;

@@ -11,9 +11,11 @@ class BoardSquare;
 class GamePiece 
 {
 	Player player;
+	size_t type;
 public:
 	GamePiece(const Player&);
 	virtual bool validMove(const Pos& dest);
+	size_t getType();
 };
 
 #endif // _GAME_PIECE_H

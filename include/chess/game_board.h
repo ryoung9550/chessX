@@ -25,5 +25,6 @@ public:
 	
 	void movePiece(const Pos&, const Pos&);
 	
+	std::array<size_t, 64> getBoardRep();
 };
 
