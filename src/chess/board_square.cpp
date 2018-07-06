@@ -36,5 +36,5 @@ size_t BoardSquare::getPieceType()
 		return currentPiece->getType();
 	}
 
-	return 255;
+	return EMPTY;
 }
