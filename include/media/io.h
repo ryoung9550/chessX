@@ -10,9 +10,11 @@ typedef std::unordered_map<size_t, std::function<void()>> FunctionMap;
 class Io 
 {
 	FunctionMap keyBindings;
+	std::function<void()> quitFunct;
 	SDL_Event event;
 
-	void executeMapEvent(const Uint32& event, const FunctionMap& functMap);
+	void executeMapEvent(const size_t& event, const FunctionMap& functMap);
+	void executeQuit();
 	
 public:
 	/// This method should get called at every iteration
@@ -23,6 +25,8 @@ public:
 	void tick();
 
 	void setKeyBinding(const size_t& keyCode, const std::function<void()>& funct);
+
+	void setQuit(const std::function<void()>& quitFunct);
 };
 
 #endif // _IO_H
