@@ -23,9 +23,13 @@ void Io::executeMapEvent(const size_t& event, const FunctionMap& functMap)
 	try {
 		std::function<void()> exe = functMap.at(event);
 		exe();
+		#ifdef DEBUG
 		std::cout << "Executed function for key " << event << '\n';
+		#endif
 	} catch(const std::out_of_range& e) {
+		#ifdef DEBUG
 		std::cerr << "ERROR [IO]: Event key " << event << " not mapped!\n";
+		#endif
 	}
 }
 
