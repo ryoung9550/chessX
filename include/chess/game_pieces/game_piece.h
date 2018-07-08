@@ -12,10 +12,19 @@ class GamePiece
 {
 	Player player;
 	size_t type;
+	std::shared_ptr<BoardSquare> currentSquare;
 public:
 	GamePiece(const Player&);
-	virtual bool validMove(const Pos& dest, std::array<size_t, 64> boardRep);
+
+	/// Returns a BoardRep with all values of which
+	/// squares are valid moves indicated with the enum
+	/// VALID_MOVE and invalid moves marked with the enum
+	/// INVALID_MOVE.
+	virtual BoardRep validMove(BoardRep boardRep) = 0;
+
 	size_t getType();
+	Pos getPosition();
+	void setCurrentSquare(std::shared_ptr<BoardSquare> boardSquare);
 };
 
 #endif // _GAME_PIECE_H

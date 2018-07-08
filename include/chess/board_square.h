@@ -11,13 +11,15 @@ class GameBoard; // forward declaration
 class BoardSquare
 {
 	GameBoard& owner;
+	const Pos pos;
 	std::unique_ptr<GamePiece> currentPiece;
 public:
-	BoardSquare(GameBoard&);
-	BoardSquare(GameBoard&, GamePiece *piece);
+	BoardSquare(GameBoard&, const Pos& pos);
+	BoardSquare(GameBoard&, const Pos& pos, GamePiece *piece);
 	std::unique_ptr<GamePiece> removePiece();
 	bool hasPiece();
 	size_t getPieceType();
+	Pos getPos();
 	void setPiece(std::unique_ptr<GamePiece>);
 };
 

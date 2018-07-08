@@ -8,7 +8,10 @@ struct Pos
 {
 	// File is the virtical orientation while
 	// rank is the horizontal orientation
-	size_t file, rank;
+	size_t rank, file;
+
+	static size_t posToIndex(Pos pos);
+	static Pos indexToPos(size_t);
 };
 
 #endif // _POS_H

@@ -4,13 +4,25 @@
 #include <cstdio>
 #include <array>
 
+namespace globals {
+	const size_t BOARD_SIZE = 8;
+	const size_t DEFAULT_WIN_H = 480;
+	const size_t DEFAULT_WIN_W = 720;
+}
+
 typedef int Player;
-typedef std::array<size_t, 64> BoardRep; // Board Representation
+typedef std::array<size_t, globals::BOARD_SIZE> BoardRep; // Board Representation
 
 enum 
 {
 	WHITE_PLAYER,
 	BLACK_PLAYER
+};
+
+enum
+{
+	VALID_MOVE,
+	INVALID_MOVE
 };
 
 enum
@@ -30,10 +42,5 @@ enum
 	EMPTY
 };
 
-namespace globals {
-	const size_t BOARD_SIZE = 8;
-	const size_t DEFAULT_WIN_H = 480;
-	const size_t DEFAULT_WIN_W = 720;
-}
 
 #endif // _GLOBALS_H

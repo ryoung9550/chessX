@@ -108,7 +108,7 @@ GameBoard::GameBoard()
 		case BLACK_KING:
 			break;
 		default:
-			gameSquares[i] = std::make_shared<BoardSquare>(*this);
+			gameSquares[i] = std::make_shared<BoardSquare>(*this, Pos::indexToPos(i));
 		}
 	}
 }
@@ -147,16 +147,16 @@ void GameBoard::movePiece(const Pos& src, const Pos& dest)
 	}
 }
 
-std::array<size_t, 64> GameBoard::getBoardRep()
+BoardRep GameBoard::getBoardRep()
 {
-	std::array<size_t, 64> retArr;
+	BoardRep retBoard;
 	for (size_t i = 0; i < gameSquares.size(); ++i) {
 		if (gameSquares[i]->hasPiece()) {
-			retArr[i] = gameSquares[i]->getPieceType();
+			retBoard[i] = gameSquares[i]->getPieceType();
 		} else {
-			retArr[i] = EMPTY;
+			retBoard[i] = EMPTY;
 		}
 	}
 
-	return retArr;
+	return retBoard;
 }

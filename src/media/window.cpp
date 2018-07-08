@@ -11,8 +11,8 @@
 
 Window::Window(std::string title) : window(
 		SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_UNDEFINED,
-		SDL_WINDOWPOS_UNDEFINED, globals::DEFAULT_WIN_H, 
-		globals::DEFAULT_WIN_W, 0))
+		SDL_WINDOWPOS_UNDEFINED, globals::DEFAULT_WIN_W, 
+		globals::DEFAULT_WIN_H, 0))
 {
 	if (this->window.get() == nullptr) {
 		throw new window_init_failed_exception();

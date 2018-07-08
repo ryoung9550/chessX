@@ -10,8 +10,8 @@ set(CMAKE_MAJOR_VERSION 0)
 set(CMAKE_MINOR_VERSION .01)
 
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
-set(CMAKE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../)
-set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
+set(INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../include)
+set(CMAKE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../src/)
 set(MAIN_TARGET "chicken")
 
 find_package(SDL2 REQUIRED)
@@ -20,17 +20,18 @@ include_directories(${SDL2_INCLUDE_DIRS})
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z -Wall -Wextra")
 
 set(SOURCES
-	${CMAKE_SOURCE_DIR}/src/main.cpp
-	${CMAKE_SOURCE_DIR}/src/chess/board_square.cpp
-	${CMAKE_SOURCE_DIR}/src/chess/game_board.cpp
-	${CMAKE_SOURCE_DIR}/src/chess/game_pieces/game_piece.cpp
-	${CMAKE_SOURCE_DIR}/src/exceptions/board_exceptions.cpp
-	${CMAKE_SOURCE_DIR}/src/exceptions/SDL_exceptions.cpp
-	${CMAKE_SOURCE_DIR}/src/media/window.cpp
-	${CMAKE_SOURCE_DIR}/src/media/io.cpp
-	${CMAKE_SOURCE_DIR}/src/media/texture.cpp
-	${CMAKE_SOURCE_DIR}/src/media/SDLDeleter.cpp
-	${CMAKE_SOURCE_DIR}/src/media/draw_object.cpp
+	${CMAKE_SOURCE_DIR}/main.cpp
+	${CMAKE_SOURCE_DIR}/chess/board_square.cpp
+	${CMAKE_SOURCE_DIR}/chess/game_board.cpp
+	${CMAKE_SOURCE_DIR}/chess/game_pieces/game_piece.cpp
+	${CMAKE_SOURCE_DIR}/exceptions/board_exceptions.cpp
+	${CMAKE_SOURCE_DIR}/exceptions/SDL_exceptions.cpp
+	${CMAKE_SOURCE_DIR}/media/window.cpp
+	${CMAKE_SOURCE_DIR}/media/io.cpp
+	${CMAKE_SOURCE_DIR}/media/texture.cpp
+	${CMAKE_SOURCE_DIR}/media/SDLDeleter.cpp
+	${CMAKE_SOURCE_DIR}/media/draw_object.cpp
+	${CMAKE_SOURCE_DIR}/common/pos.cpp
 )
 
 add_executable(${MAIN_TARGET} ${SOURCES})

@@ -6,9 +6,9 @@
 
 #include <memory>
 
-BoardSquare::BoardSquare(GameBoard& parrent) : owner(parrent), currentPiece(nullptr) {}
+BoardSquare::BoardSquare(GameBoard& parrent, const Pos& pos) : owner(parrent), pos(pos), currentPiece(nullptr) {}
 
-BoardSquare::BoardSquare(GameBoard& parrent, GamePiece *piece) : owner(parrent), currentPiece(piece) {}
+BoardSquare::BoardSquare(GameBoard& parrent, const Pos& pos, GamePiece *piece) : owner(parrent), pos(pos), currentPiece(piece) {}
 
 std::unique_ptr<GamePiece> BoardSquare::removePiece()
 {
@@ -23,6 +23,11 @@ void BoardSquare::setPiece(std::unique_ptr<GamePiece> srcPtr)
 	} else {
 		throw new square_has_piece_exception;
 	}
+}
+
+Pos BoardSquare::getPos()
+{
+	return pos;
 }
 
 bool BoardSquare::hasPiece()
