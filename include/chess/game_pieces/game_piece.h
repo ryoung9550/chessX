@@ -14,7 +14,7 @@ class GamePiece
 	size_t type;
 public:
 	GamePiece(const Player&);
-	virtual bool validMove(const Pos& dest);
+	virtual bool validMove(const Pos& dest, std::array<size_t, 64> boardRep);
 	size_t getType();
 };
 

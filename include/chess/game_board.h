@@ -1,3 +1,5 @@
+#ifndef _GAME_BOARD_H
+#define _GAME_BOARD_H
 #pragma once
 
 #include "chess/board_square.h"
@@ -25,6 +27,7 @@ public:
 	
 	void movePiece(const Pos&, const Pos&);
 	
-	std::array<size_t, 64> getBoardRep();
+	BoardRep getBoardRep();
 };
 
+#endif // _GAME_BOARD_H

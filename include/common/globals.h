@@ -2,8 +2,10 @@
 #define _GLOBALS_H
 
 #include <cstdio>
+#include <array>
 
 typedef int Player;
+typedef std::array<size_t, 64> BoardRep; // Board Representation
 
 enum 
 {
