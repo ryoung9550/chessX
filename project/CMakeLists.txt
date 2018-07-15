@@ -24,6 +24,7 @@ set(SOURCES
 	${CMAKE_SOURCE_DIR}/chess/board_square.cpp
 	${CMAKE_SOURCE_DIR}/chess/game_board.cpp
 	${CMAKE_SOURCE_DIR}/chess/game_piece.cpp
+	${CMAKE_SOURCE_DIR}/chess/rule_enforcer.cpp
 	${CMAKE_SOURCE_DIR}/exceptions/board_exceptions.cpp
 	${CMAKE_SOURCE_DIR}/exceptions/SDL_exceptions.cpp
 	${CMAKE_SOURCE_DIR}/media/window.cpp

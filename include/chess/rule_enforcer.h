@@ -5,6 +5,7 @@
 
 #include "chess/game_board.h"
 #include "chess/board_square.h"
+#include "common/pos.h"
 #include "common/globals.h"
 
 /*
@@ -15,9 +16,15 @@
 class RuleEnforcer
 {
 	GameBoard& board;
+	BoardRep getPawnMoves(const Pos&);
+	BoardRep getRookMoves(const Pos&);
+	BoardRep getKnightMoves(const Pos&);
+	BoardRep getBishopMoves(const Pos&);
+	BoardRep getQueenMoves(const Pos&);
+	BoardRep getKingMoves(const Pos&);
 public:
 	RuleEnforcer(GameBoard&);
-	BoardRep getMoves(const GamePiece& srcPiece);
+	BoardRep getMoves(const Pos& pos);
 	void movePiece(std::shared_ptr<GamePiece> gamepiece, std::shared_ptr<BoardSquare> dest);
 };
 
