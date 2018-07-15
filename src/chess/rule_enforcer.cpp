@@ -207,7 +207,7 @@ BoardRep RuleEnforcer::getRookMoves(const Pos& pos)
 		}
 	}
 
-	return {0}; 
+	return retBoard; 
 }
 BoardRep RuleEnforcer::getKnightMoves(const Pos& /*pos*/) { return {0}; }
 BoardRep RuleEnforcer::getBishopMoves(const Pos& /*pos*/) { return {0}; }
