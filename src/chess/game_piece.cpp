@@ -33,10 +33,12 @@ void GamePiece::setPlayer(const Player& player)
 	this->player = player;
 }
 
-Pawn::Pawn(const Player& player) : GamePiece(player, PieceType::PAWN) {}
+Pawn::Pawn(const Player& player) : GamePiece(player, PieceType::PAWN), moved(false) {}
 Bishop::Bishop(const Player& player) : GamePiece(player, PieceType::BISHOP) {}
 Rook::Rook(const Player& player) : GamePiece(player, PieceType::ROOK) {}
 Knight::Knight(const Player& player) : GamePiece(player, PieceType::KNIGHT) {}
 Queen::Queen(const Player& player) : GamePiece(player, PieceType::QUEEN) {}
 King::King(const Player& player) : GamePiece(player, PieceType::KING) {}
 NullPiece::NullPiece() : GamePiece(Player::NOT_A_PLAYER, PieceType::EMPTY) {}
+
+bool Pawn::hasMoved() { return this->moved; }

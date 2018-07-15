@@ -22,6 +22,9 @@ class RuleEnforcer
 	BoardRep getBishopMoves(const Pos&);
 	BoardRep getQueenMoves(const Pos&);
 	BoardRep getKingMoves(const Pos&);
+	Player opponent(const Player&);
+	static bool isInBounds(const Pos&);
+	static void initBoardRep(BoardRep&);
 public:
 	RuleEnforcer(GameBoard&);
 	BoardRep getMoves(const Pos& pos);

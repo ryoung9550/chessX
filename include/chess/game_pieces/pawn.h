@@ -6,9 +6,10 @@
 
 class Pawn : public GamePiece 
 {
-	bool notMoved;
+	bool moved;
 public:
 	Pawn(const Player&);
+	bool hasMoved();
 };
 
 #endif // _PAWN_H
