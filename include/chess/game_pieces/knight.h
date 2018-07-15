@@ -5,5 +5,4 @@ class Knight : public GamePiece
 {
 public:
 	Knight(const Player& player);
-	virtual BoardRep validMove(const BoardRep& boardRep) override;
 };

@@ -1,5 +1,14 @@
 #include "chess/game_board.h"
+#include "chess/board_square.h"
 #include "common/globals.h"
+#include "common/pos.h"
+#include "chess/game_pieces/pawn.h"
+#include "chess/game_pieces/rook.h"
+#include "chess/game_pieces/knight.h"
+#include "chess/game_pieces/bishop.h"
+#include "chess/game_pieces/queen.h"
+#include "chess/game_pieces/king.h"
+#include "chess/game_pieces/null_piece.h"
 
 #include <memory>
 #include <array>
@@ -56,107 +65,87 @@
 #define B_PAWN_7 49
 #define B_PAWN_8 48
 
-GameBoard::GameBoard()
-{
-	constexpr int NUM_OF_SQUARES = globals::BOARD_SIZE * globals::BOARD_SIZE;
+#define bs BoardSquare
 
-	for (int i = 0; i < NUM_OF_SQUARES; ++i) {
-		//TODO: Create square creation with game pieces
-		switch (i) {
-		case W_PAWN_1:
-		case W_PAWN_2:
-		case W_PAWN_3:
-		case W_PAWN_4:
-		case W_PAWN_5:
-		case W_PAWN_6:
-		case W_PAWN_7:
-		case W_PAWN_8:
-			break;
-		case WHITE_ROOK_1:
-		case WHITE_ROOK_2:
-			break;
-		case WHITE_KNIGHT_1:
-		case WHITE_KNIGHT_2:
-			break;
-		case WHITE_BISHOP_1:
-		case WHITE_BISHOP_2:
-			break;
-		case WHITE_QUEEN:
-			break;
-		case WHITE_KING:
-			break;
-		case B_PAWN_1:
-		case B_PAWN_2:
-		case B_PAWN_3:
-		case B_PAWN_4:
-		case B_PAWN_5:
-		case B_PAWN_6:
-		case B_PAWN_7:
-		case B_PAWN_8:
-			break;
-		case BLACK_ROOK_1:
-		case BLACK_ROOK_2:
-			break;
-		case BLACK_KNIGHT_1:
-		case BLACK_KNIGHT_2:
-			break;
-		case BLACK_BISHOP_1:
-		case BLACK_BISHOP_2:
-			break;
-		case BLACK_QUEEN:
-			break;
-		case BLACK_KING:
-			break;
-		default:
-			gameSquares[i] = std::make_shared<BoardSquare>(*this, Pos::indexToPos(i));
-		}
+GameBoard::GameBoard() : gameSquares({bs(0), bs(1), bs(2), bs(3), bs(4),
+	bs(5), bs(6), bs(7), bs(8), bs(9), bs(10), bs(11), bs(12), bs(13),
+	bs(14), bs(15), bs(16), bs(17), bs(18), bs(19), bs(20), bs(21), bs(22),
+	bs(23), bs(24), bs(25), bs(26), bs(27), bs(28), bs(29), bs(30), bs(31),
+	bs(32), bs(33), bs(34), bs(35), bs(36), bs(37), bs(38), bs(39), bs(40),
+	bs(41), bs(42), bs(43), bs(44), bs(45), bs(46), bs(47), bs(48), bs(49),
+	bs(50), bs(51), bs(52), bs(53), bs(54), bs(55), bs(56), bs(57), bs(58),
+	bs(59), bs(60), bs(61), bs(62), bs(63)})
+{
+	// Init Board
+	for(size_t i = 0; i < globals::BOARD_SIZE * globals::BOARD_SIZE; ++i) {
+		gameSquares[i].clearPiece();
 	}
+
+
+	// Setup white pawns
+
+	gameSquares[W_PAWN_1].getPiece() = Pawn(Player::WHITE_PLAYER);
+	gameSquares[W_PAWN_2].getPiece() = Pawn(Player::WHITE_PLAYER);
+	gameSquares[W_PAWN_3].getPiece() = Pawn(Player::WHITE_PLAYER);
+	gameSquares[W_PAWN_4].getPiece() = Pawn(Player::WHITE_PLAYER);
+	gameSquares[W_PAWN_5].getPiece() = Pawn(Player::WHITE_PLAYER);
+	gameSquares[W_PAWN_6].getPiece() = Pawn(Player::WHITE_PLAYER);
+	gameSquares[W_PAWN_7].getPiece() = Pawn(Player::WHITE_PLAYER);
+	gameSquares[W_PAWN_8].getPiece() = Pawn(Player::WHITE_PLAYER);
+
+	// Setup main white pieces
+	gameSquares[WHITE_ROOK_1].getPiece() = Rook(Player::WHITE_PLAYER);
+	gameSquares[WHITE_ROOK_2].getPiece() = Rook(Player::WHITE_PLAYER);
+
+	gameSquares[WHITE_KNIGHT_1].getPiece() = Knight(Player::WHITE_PLAYER);
+	gameSquares[WHITE_KNIGHT_2].getPiece() = Knight(Player::WHITE_PLAYER);
+
+	gameSquares[WHITE_BISHOP_1].getPiece() = Bishop(Player::WHITE_PLAYER);
+	gameSquares[WHITE_BISHOP_2].getPiece() = Bishop(Player::WHITE_PLAYER);
+
+	gameSquares[WHITE_QUEEN].getPiece() = Queen(Player::WHITE_PLAYER);
+	gameSquares[WHITE_KING].getPiece() = King(Player::WHITE_PLAYER);
+
+	// Setup black pawns
+	gameSquares[B_PAWN_1].getPiece() = Pawn(Player::BLACK_PLAYER);
+	gameSquares[B_PAWN_2].getPiece() = Pawn(Player::BLACK_PLAYER);
+	gameSquares[B_PAWN_3].getPiece() = Pawn(Player::BLACK_PLAYER);
+	gameSquares[B_PAWN_4].getPiece() = Pawn(Player::BLACK_PLAYER);
+	gameSquares[B_PAWN_5].getPiece() = Pawn(Player::BLACK_PLAYER);
+	gameSquares[B_PAWN_6].getPiece() = Pawn(Player::BLACK_PLAYER);
+	gameSquares[B_PAWN_7].getPiece() = Pawn(Player::BLACK_PLAYER);
+	gameSquares[B_PAWN_8].getPiece() = Pawn(Player::BLACK_PLAYER);
+
+	// Setup main black pieces
+	gameSquares[BLACK_ROOK_1].getPiece() = Rook(Player::BLACK_PLAYER);
+	gameSquares[BLACK_ROOK_2].getPiece() = Rook(Player::BLACK_PLAYER);
+
+	gameSquares[BLACK_KNIGHT_1].getPiece() = Knight(Player::BLACK_PLAYER);
+	gameSquares[BLACK_KNIGHT_2].getPiece() = Knight(Player::BLACK_PLAYER);
+
+	gameSquares[BLACK_BISHOP_1].getPiece() = Bishop(Player::BLACK_PLAYER);
+	gameSquares[BLACK_BISHOP_2].getPiece() = Bishop(Player::BLACK_PLAYER);
+
+	gameSquares[BLACK_QUEEN].getPiece() = Queen(Player::BLACK_PLAYER);
+	gameSquares[BLACK_KING].getPiece() = King(Player::BLACK_PLAYER);
 }
 
-std::shared_ptr<BoardSquare> GameBoard::getSquare(const size_t& row, const size_t& col)
+BoardSquare& GameBoard::getSquare(const Pos& pos)
 {
-	return gameSquares[ (col - 1) + ((row - 1) * 8) ];
+	return gameSquares[Pos::posToIndex(pos)];
 }
 
-int GameBoard::getPosOffset(const Pos& pos)
+BoardSquare& GameBoard::getSquare(const size_t& rank, const size_t& file)
 {
-	int offsetIndex = 0;
-	offsetIndex += pos.file;
-	offsetIndex += pos.rank * globals::BOARD_SIZE;
-
-	return offsetIndex;
+	return gameSquares[rank + (file * globals::BOARD_SIZE)];
 }
 
 void GameBoard::movePiece(const Pos& src, const Pos& dest)
 {
-	int srcOffset = getPosOffset(src);
-	int destOffest = getPosOffset(dest);
-	std::unique_ptr<GamePiece> movingPiece = 
-		gameSquares[srcOffset]->removePiece();
-	
-	//TODO: check for valid move of the piece before moving
-	if (true) {
-		if (gameSquares[destOffest]->hasPiece()) {
-			std::unique_ptr<GamePiece> capturedPiece =
-				gameSquares[destOffest]->removePiece();
-			capturedPieces.push_back(std::move(capturedPiece));
-		}
-		gameSquares[destOffest]->setPiece(std::move(movingPiece));
-	} else { // not valid move
-		gameSquares[srcOffset]->setPiece(std::move(movingPiece));
+	if(getSquare(dest).hasPiece()) {
+		capturedPieces.push_back(getSquare(dest).getPiece());
 	}
+	getSquare(dest).getPiece() = getSquare(src).getPiece();
+	getSquare(src).getPiece() = NullPiece();
 }
 
-BoardRep GameBoard::getBoardRep()
-{
-	BoardRep retBoard;
-	for (size_t i = 0; i < gameSquares.size(); ++i) {
-		if (gameSquares[i]->hasPiece()) {
-			retBoard[i] = gameSquares[i]->getPieceType();
-		} else {
-			retBoard[i] = EMPTY;
-		}
-	}
-
-	return retBoard;
-}

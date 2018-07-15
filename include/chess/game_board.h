@@ -11,8 +11,8 @@
 
 class GameBoard
 {
-	std::array<std::shared_ptr<BoardSquare>, globals::BOARD_SIZE * globals::BOARD_SIZE> gameSquares;
-	std::vector<std::unique_ptr<GamePiece> > capturedPieces;
+	std::array<BoardSquare, globals::BOARD_SIZE * globals::BOARD_SIZE> gameSquares;
+	std::vector<GamePiece> capturedPieces{};
 	int getPosOffset(const Pos&);
 public:
 	/*
@@ -23,11 +23,9 @@ public:
 	/*
 	 * @brief - Return reference to square
 	 */
-	std::shared_ptr<BoardSquare> getSquare(const size_t& row, const size_t& col);
-	
+	BoardSquare& getSquare(const Pos& pos);
+	BoardSquare& getSquare(const size_t& rank, const size_t& file);
 	void movePiece(const Pos&, const Pos&);
-	
-	BoardRep getBoardRep();
 };
 
 #endif // _GAME_BOARD_H

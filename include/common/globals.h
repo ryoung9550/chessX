@@ -10,7 +10,7 @@ namespace globals {
 	const size_t DEFAULT_WIN_W = 720;
 }
 
-typedef std::array<size_t, globals::BOARD_SIZE> BoardRep; // Board Representation
+typedef std::array<size_t, globals::BOARD_SIZE * globals::BOARD_SIZE> BoardRep; // Board Representation
 
 enum Player
 {
@@ -19,7 +19,7 @@ enum Player
 	NOT_A_PLAYER
 };
 
-enum
+enum MoveType
 {
 	VALID_MOVE,
 	INVALID_MOVE
@@ -32,9 +32,11 @@ enum PieceType
 	KNIGHT,
 	BISHOP,
 	QUEEN,
-	KING
+	KING,
+	EMPTY
 };
 
+/*
 enum PieceDetail
 {
 	W_ROOK,
@@ -51,6 +53,7 @@ enum PieceDetail
 	B_PAWN,
 	EMPTY
 };
+*/
 
 
 #endif // _GLOBALS_H

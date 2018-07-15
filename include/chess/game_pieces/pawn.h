@@ -9,7 +9,6 @@ class Pawn : public GamePiece
 	bool notMoved;
 public:
 	Pawn(const Player&);
-	virtual BoardRep validMove(BoardRep boardRep) override;
 };
 
 #endif // _PAWN_H

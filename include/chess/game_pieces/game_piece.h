@@ -12,25 +12,13 @@ class GamePiece
 {
 	Player player;
 	PieceType type;
-	std::shared_ptr<BoardSquare> currentSquare;
 protected:
 	void setType(const PieceType& type);
+	void setPlayer(const Player& player);
 public:
-	GamePiece(const Player&);
-
-	/// Returns a BoardRep with all values of which
-	/// squares are valid moves indicated with the enum
-	/// VALID_MOVE and invalid moves marked with the enum
-	/// INVALID_MOVE.
-	virtual BoardRep validMove(const BoardRep& boardRep) = 0;
-
-	size_t getType();
-	Pos getPosition();
-	void setCurrentSquare(std::shared_ptr<BoardSquare> boardSquare);
+	GamePiece(const Player&, const PieceType&);
+	PieceType getType();
+	Player getPlayer();
 };
-
-bool isPosInBounds(Pos pos);
-void initializeBoardRep(BoardRep& boardRep);
-Player getPlayerFromBoard(const BoardRep& boardRep, const Pos& pos);
 
 #endif // _GAME_PIECE_H

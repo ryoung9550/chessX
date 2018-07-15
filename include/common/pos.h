@@ -10,6 +10,8 @@ struct Pos
 	// rank is the horizontal orientation
 	size_t file, rank;
 
+	Pos(const size_t& index);
+	Pos(const size_t& file, const size_t& rank);
 	static size_t posToIndex(Pos pos);
 	static Pos indexToPos(size_t);
 };

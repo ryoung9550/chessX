@@ -8,7 +8,6 @@ class Bishop : public GamePiece
 {
 public:
 	Bishop(const Player& player);
-	virtual BoardRep validMove(const BoardRep& boardRep) override;
 };
 
 #endif // _BISHOP_H
