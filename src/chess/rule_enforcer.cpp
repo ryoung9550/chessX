@@ -209,7 +209,45 @@ BoardRep RuleEnforcer::getRookMoves(const Pos& pos)
 
 	return retBoard; 
 }
-BoardRep RuleEnforcer::getKnightMoves(const Pos& /*pos*/) { return {0}; }
+BoardRep RuleEnforcer::getKnightMoves(const Pos& pos) 
+{ 
+	BoardRep retBoard;
+	initBoardRep(retBoard);
+	Player player = board.getSquare(pos).getPiece().getPlayer();
+
+	Pos moveVectors[2] = { Pos(3,2), Pos(2,3) };
+	
+	//Total of 8 moves
+	for(size_t i = 0; i < 4; ++i) {
+		Pos pos1(0, 0), pos2(0, 0);
+		switch(i) {
+		case 0:
+			pos1 = Pos(pos.file + moveVectors[0].file, pos.rank + moveVectors[0].rank);
+			pos2 = Pos(pos.file + moveVectors[1].file, pos.rank + moveVectors[1].rank);
+			break;
+		case 1:
+			pos1 = Pos(pos.file + moveVectors[0].file, pos.rank - moveVectors[0].rank);
+			pos2 = Pos(pos.file + moveVectors[1].file, pos.rank - moveVectors[1].rank);
+			break;
+		case 2:
+			pos1 = Pos(pos.file - moveVectors[0].file, pos.rank - moveVectors[0].rank);
+			pos2 = Pos(pos.file - moveVectors[1].file, pos.rank - moveVectors[1].rank);
+			break;
+		case 3:
+			pos1 = Pos(pos.file - moveVectors[0].file, pos.rank + moveVectors[0].rank);
+			pos2 = Pos(pos.file - moveVectors[1].file, pos.rank + moveVectors[1].rank);
+			break;
+		}
+		if(isInBounds(pos1) && player == opponent(player)) {
+			retBoard[Pos::posToIndex(pos1)] = MoveType::VALID_MOVE;
+		}
+		if(isInBounds(pos2) && player == opponent(player)) {
+			retBoard[Pos::posToIndex(pos2)] = MoveType::VALID_MOVE;
+		}
+	}
+	
+	return retBoard;
+}
 BoardRep RuleEnforcer::getBishopMoves(const Pos& /*pos*/) { return {0}; }
 BoardRep RuleEnforcer::getQueenMoves(const Pos& /*pos*/) { return {0}; }
 BoardRep RuleEnforcer::getKingMoves(const Pos& /*pos*/) { return {0}; }
