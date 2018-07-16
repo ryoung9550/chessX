@@ -10,7 +10,7 @@
 
 RuleEnforcer::RuleEnforcer(GameBoard& board) : board(board) {}
 
-BoardRep RuleEnforcer::getMoves(const Pos& pos)
+BoardRep RuleEnforcer::getMoves(const Pos& pos) const
 {
 	GamePiece piece = board.getSquare(pos).getPiece();
 	
@@ -33,7 +33,7 @@ BoardRep RuleEnforcer::getMoves(const Pos& pos)
 	return {0};
 }
 
-BoardRep RuleEnforcer::getPawnMoves(const Pos& pos) 
+BoardRep RuleEnforcer::getPawnMoves(const Pos& pos) const
 {
 	BoardRep retBoard;
 	initBoardRep(retBoard);
@@ -123,7 +123,7 @@ BoardRep RuleEnforcer::getPawnMoves(const Pos& pos)
 	return {0};
 }
 
-BoardRep RuleEnforcer::getRookMoves(const Pos& pos) 
+BoardRep RuleEnforcer::getRookMoves(const Pos& pos) const
 { 
 	BoardRep retBoard;
 	initBoardRep(retBoard);
@@ -209,7 +209,7 @@ BoardRep RuleEnforcer::getRookMoves(const Pos& pos)
 
 	return retBoard; 
 }
-BoardRep RuleEnforcer::getKnightMoves(const Pos& pos) 
+BoardRep RuleEnforcer::getKnightMoves(const Pos& pos) const
 { 
 	BoardRep retBoard;
 	initBoardRep(retBoard);
@@ -248,9 +248,103 @@ BoardRep RuleEnforcer::getKnightMoves(const Pos& pos)
 	
 	return retBoard;
 }
-BoardRep RuleEnforcer::getBishopMoves(const Pos& /*pos*/) { return {0}; }
-BoardRep RuleEnforcer::getQueenMoves(const Pos& /*pos*/) { return {0}; }
-BoardRep RuleEnforcer::getKingMoves(const Pos& /*pos*/) { return {0}; }
+BoardRep RuleEnforcer::getBishopMoves(const Pos& pos) const
+{ 
+	BoardRep retBoard;
+	initBoardRep(retBoard);
+	Player player = board.getSquare(pos).getPiece().getPlayer();
+
+	// File+ Rank+ movement
+	Pos refPos = pos;
+	for(;;) {
+		refPos.file++;
+		refPos.rank++;
+		if(isInBounds(refPos)) {
+			retBoard[Pos::posToIndex(refPos)] = MoveType::VALID_MOVE;
+			GamePiece refPiece = board.getSquare(refPos).getPiece();
+			if(refPiece.getType() != PieceType::EMPTY) {
+				if(refPiece.getPlayer() == opponent(player)) {
+					break;
+				} else { // Same color piece
+					retBoard[Pos::posToIndex(refPos)] = MoveType::INVALID_MOVE;
+				}
+			} 
+		} else {
+			break;
+		}
+	}
+
+	// File+ Rank- movement
+	refPos = pos;
+	for(;;) {
+		refPos.file++;
+		refPos.rank--;
+		if(isInBounds(refPos)) {
+			retBoard[Pos::posToIndex(refPos)] = MoveType::VALID_MOVE;
+			GamePiece refPiece = board.getSquare(refPos).getPiece();
+			if(refPiece.getType() != PieceType::EMPTY) {
+				if(refPiece.getPlayer() == opponent(player)) {
+					break;
+				} else { // Same color piece
+					retBoard[Pos::posToIndex(refPos)] = MoveType::INVALID_MOVE;
+				}
+			} 
+		} else {
+			break;
+		}
+	}
+
+	// File- Rank- movement
+	refPos = pos;
+	for(;;) {
+		refPos.file--;
+		refPos.rank--;
+		if(isInBounds(refPos)) {
+			retBoard[Pos::posToIndex(refPos)] = MoveType::VALID_MOVE;
+			GamePiece refPiece = board.getSquare(refPos).getPiece();
+			if(refPiece.getType() != PieceType::EMPTY) {
+				if(refPiece.getPlayer() == opponent(player)) {
+					break;
+				} else { // Same color piece
+					retBoard[Pos::posToIndex(refPos)] = MoveType::INVALID_MOVE;
+				}
+			} 
+		} else {
+			break;
+		}
+	}
+
+	// File- Rank+ movement
+	refPos = pos;
+	for(;;) {
+		refPos.file--;
+		refPos.rank++;
+		if(isInBounds(refPos)) {
+			retBoard[Pos::posToIndex(refPos)] = MoveType::VALID_MOVE;
+			GamePiece refPiece = board.getSquare(refPos).getPiece();
+			if(refPiece.getType() != PieceType::EMPTY) {
+				if(refPiece.getPlayer() == opponent(player)) {
+					break;
+				} else { // Same color piece
+					retBoard[Pos::posToIndex(refPos)] = MoveType::INVALID_MOVE;
+				}
+			} 
+		} else {
+			break;
+		}
+	}
+
+	return retBoard; 
+}
+BoardRep RuleEnforcer::getQueenMoves(const Pos& pos) const
+{ 
+	BoardRep rook = getRookMoves(pos);
+	BoardRep bishop = getBishopMoves(pos);
+	BoardRep retBoard = combineReps(rook, bishop);
+
+	return retBoard;
+}
+BoardRep RuleEnforcer::getKingMoves(const Pos& /*pos*/) const { return {0}; }
 
 bool RuleEnforcer::isInBounds(const Pos& pos)
 {
@@ -267,7 +361,7 @@ void RuleEnforcer::initBoardRep(BoardRep& board)
 	}
 }
 
-Player RuleEnforcer::opponent(const Player& player)
+Player RuleEnforcer::opponent(const Player& player) const
 {
 	switch(player) {
 	case Player::BLACK_PLAYER:
@@ -277,4 +371,9 @@ Player RuleEnforcer::opponent(const Player& player)
 	default:
 		return Player::NOT_A_PLAYER;
 	}
+}
+
+BoardRep RuleEnforcer::combineReps(const BoardRep& board1, const BoardRep& board2)
+{
+	return {0};
 }
