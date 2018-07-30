@@ -382,6 +382,10 @@ BoardRep RuleEnforcer::combineReps(const BoardRep& board1, const BoardRep& board
 		{
 			retBoard[i] = MoveType::VALID_MOVE;
 		}
+		else
+		{
+			retBoard[i] = MoveType::INVALID_MOVE;
+		}
 	}
 
 	return {0};
