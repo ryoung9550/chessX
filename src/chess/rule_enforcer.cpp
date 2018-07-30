@@ -375,5 +375,14 @@ Player RuleEnforcer::opponent(const Player& player) const
 
 BoardRep RuleEnforcer::combineReps(const BoardRep& board1, const BoardRep& board2)
 {
+	BoardRep retBoard {0};
+	for(int i = 0; i < (int) retBoard.size(); ++i) {
+		if(board1[i] == MoveType::VALID_MOVE ||
+			board2[i] == MoveType::VALID_MOVE) 
+		{
+			retBoard[i] = MoveType::VALID_MOVE;
+		}
+	}
+
 	return {0};
 }
