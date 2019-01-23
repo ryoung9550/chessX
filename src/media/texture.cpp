@@ -1,16 +1,16 @@
 #include <memory>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 #include "media/texture.h"
 #include "media/SDLDeleter.h"
 
-Texture::Texture(std::unique_ptr<SDL_Texture, SDL_Deleter> texture, const SDL_Rect& size)
+Texture::Texture(std::string imgFilepath)
 {
-	this->texture = std::move(texture);
-	this->size = size;
+	 this->texture = std::shared_ptr<SDL_Surface>(IMG_Load(imgFilepath.c_str()));
 }
 
-const SDL_Rect& Texture::getSize()
+const SDL_Rect& Texture::getSize() const
 {
 	return size;
 }

@@ -2,3 +2,7 @@
 
 #include "media/draw_object.h"
 
+DrawObject::DrawObject() 
+{
+
+}

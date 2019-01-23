@@ -9,7 +9,7 @@
 int main()
 {
 	bool running = true;
-	std::cout << "chicken shit\n";
+	//std::cout << "chicken shit\n";
 	Window win("chicken shit lul");
 	Io io;
 	io.setQuit([&running]() -> void {

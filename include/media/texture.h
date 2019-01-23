@@ -8,12 +8,12 @@
 
 class Texture
 {
-	std::unique_ptr<SDL_Texture, SDL_Deleter> texture;
+	std::shared_ptr<SDL_Surface> texture;
 	SDL_Rect size;
 public:
-	Texture();
-	Texture(std::unique_ptr<SDL_Texture, SDL_Deleter>, const SDL_Rect&);
-	const SDL_Rect& getSize();
+	Texture(std::string imgFilepath);
+	const SDL_Rect& getSize() const;
+	std::shared_ptr<SDL_Surface> getTexture();
 };
 
 #endif // _TEXTURE_H
