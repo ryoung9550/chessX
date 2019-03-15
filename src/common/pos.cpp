@@ -1,5 +1,5 @@
-#include "common/pos.h"
-#include "common/globals.h"
+#include "pos.h"
+#include "globals.h"
 
 #define POS_OUT_OF_BOUNDS ((SIZE_T_MAX)(~0ul))
 

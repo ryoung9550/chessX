@@ -1,6 +1,6 @@
 #include <SDL2/SDL.h>
 
-#include "media/draw_object.h"
+#include "draw_object.h"
 
 DrawObject::DrawObject() 
 {

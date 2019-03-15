@@ -1,15 +1,15 @@
 #include <memory>
 
-#include "chess/game_pieces/game_piece.h"
-#include "chess/game_pieces/pawn.h"
-#include "chess/game_pieces/bishop.h"
-#include "chess/game_pieces/knight.h"
-#include "chess/game_pieces/rook.h"
-#include "chess/game_pieces/queen.h"
-#include "chess/game_pieces/king.h"
-#include "chess/game_pieces/null_piece.h"
-#include "chess/board_square.h"
-#include "common/globals.h"
+#include "game_pieces/game_piece.h"
+#include "game_pieces/pawn.h"
+#include "game_pieces/bishop.h"
+#include "game_pieces/knight.h"
+#include "game_pieces/rook.h"
+#include "game_pieces/queen.h"
+#include "game_pieces/king.h"
+#include "game_pieces/null_piece.h"
+#include "board_square.h"
+#include "../common/globals.h"
 
 GamePiece::GamePiece(const Player& p, const PieceType& type) : player(p), type(type) {}
 

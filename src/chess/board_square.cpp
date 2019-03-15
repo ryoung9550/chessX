@@ -1,8 +1,8 @@
-#include "chess/game_board.h"
-#include "chess/game_pieces/game_piece.h"
-#include "chess/game_pieces/null_piece.h"
-#include "common/pos.h"
-#include "common/globals.h"
+#include "game_board.h"
+#include "game_pieces/game_piece.h"
+#include "game_pieces/null_piece.h"
+#include "../common/pos.h"
+#include "../common/globals.h"
 
 BoardSquare::BoardSquare(const Pos& pos) : pos(pos), piece(NullPiece()) {}
 

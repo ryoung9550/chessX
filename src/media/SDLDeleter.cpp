@@ -1,6 +1,6 @@
 #include <SDL2/SDL.h>
 
-#include "media/SDLDeleter.h"
+#include "SDLDeleter.h"
 
 void SDL_Deleter::operator()(SDL_Window* window)
 {

@@ -2,8 +2,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-#include "media/texture.h"
-#include "media/SDLDeleter.h"
+#include "texture.h"
+#include "SDLDeleter.h"
 
 Texture::Texture(std::string imgFilepath)
 {

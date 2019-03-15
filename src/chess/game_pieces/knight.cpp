@@ -1,6 +1,6 @@
-#include "common/globals.h"
-#include "common/pos.h"
-#include "chess/game_pieces/knight.h"
+#include "../../common/globals.h"
+#include "../../common/pos.h"
+#include "../game_pieces/knight.h"
 
 static const size_t POSSIBLE_MOVES = 2;
 

@@ -2,8 +2,8 @@
 #include <stdexcept>
 #include <iostream>
 
-#include "media/io.h"
-#include "common/globals.h"
+#include "io.h"
+#include "../common/globals.h"
 
 void Io::tick()
 {

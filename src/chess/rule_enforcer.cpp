@@ -1,12 +1,12 @@
-#include "chess/rule_enforcer.h"
-#include "chess/game_pieces/pawn.h"
-#include "chess/game_pieces/rook.h"
-#include "chess/game_pieces/knight.h"
-#include "chess/game_pieces/bishop.h"
-#include "chess/game_pieces/queen.h"
-#include "chess/game_pieces/king.h"
-#include "common/pos.h"
-#include "common/globals.h"
+#include "rule_enforcer.h"
+#include "game_pieces/pawn.h"
+#include "game_pieces/rook.h"
+#include "game_pieces/knight.h"
+#include "game_pieces/bishop.h"
+#include "game_pieces/queen.h"
+#include "game_pieces/king.h"
+#include "../common/pos.h"
+#include "../common/globals.h"
 
 RuleEnforcer::RuleEnforcer(GameBoard& board) : board(board) {}
 

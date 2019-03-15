@@ -1,7 +1,7 @@
-#include "media/window.h"
-#include "common/SDLInit.h"
-#include "common/globals.h"
-#include "exceptions/SDL_exceptions.h"
+#include "window.h"
+#include "../common/globals.h"
+#include "../common/SDLInit.h"
+#include "../exceptions/SDL_exceptions.h"
 
 #include <vector>
 #include <string>
@@ -15,6 +15,7 @@ Window::Window(std::string title) : window(
 		globals::DEFAULT_WIN_H, 0))
 {
 	if (this->window.get() == nullptr) {
+		
 		throw new window_init_failed_exception();
 	}
 }
