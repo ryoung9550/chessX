@@ -17,6 +17,7 @@ public:
 	Window(std::string title);
 	~Window();
 	View& getView(int, Uint32);
+	size_t render();
 };
 
 #endif // _WINDOW_H
